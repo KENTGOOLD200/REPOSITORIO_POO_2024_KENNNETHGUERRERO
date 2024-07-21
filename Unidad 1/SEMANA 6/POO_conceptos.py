@@ -19,7 +19,7 @@ class Cat(animal):
         return f"{self.name} dice '¡Miau!'" # Hacemos uso del método speak para simular el sonido del gato.
 
 
-# LLamamos a los métodos para imprimir los resultados.
+# LLamamos a los métodos para imprimir los resultados finales
 if __name__ == "__main__":
     # Creación de instancias
     perro = Dog("Firulais")
