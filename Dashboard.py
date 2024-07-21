@@ -21,7 +21,7 @@ def mostrar_menu():
     opciones = {
         '1': 'Unidad 1/semana 4/EjemplosMundoReal_POO/Registro_productos_precios.py',
         '2': 'Unidad 1/semana 5/calculo_aumento_sueldo.py',
-        '3': 'Unidad 1/semana 6/POO_conceptos.py',
+        '3': 'Unidad 1/SEMANA 6/POO_conceptos.py',
         '4': 'Unidad 1/semana 7/constructores_y_destructores.py',
         # Agrega aquí el resto de las rutas de los scripts
     }
