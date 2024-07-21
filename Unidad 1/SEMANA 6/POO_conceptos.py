@@ -16,10 +16,10 @@ class Dog(animal):
 # Clase hija 2
 class Cat(animal):
     def speak(self):
-        return f"{self.name} dice '¡Miau!'" # Hacemos uso del método speak para simular el sonido del gato
+        return f"{self.name} dice '¡Miau!'" # Hacemos uso del método speak para simular el sonido del gato.
 
 
-# LLamamos a los métodos para imprimir los resultados
+# LLamamos a los métodos para imprimir los resultados.
 if __name__ == "__main__":
     # Creación de instancias
     perro = Dog("Firulais")
