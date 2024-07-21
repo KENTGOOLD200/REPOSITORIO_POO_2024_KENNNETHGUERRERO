@@ -44,6 +44,6 @@ def mostrar_menu():
             print("Opción no válida. Por favor, intenta de nuevo.")
 
 
-# Ejecutar el dashboard
+# Ejecutar el dashboard.
 if __name__ == "__main__":
     mostrar_menu()

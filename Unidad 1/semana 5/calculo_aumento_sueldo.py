@@ -42,3 +42,4 @@ print("¡BIENVENIDO AL SISTEMA DE CALCULO DE AUMENTO DE SALARIOS DE LA EMPRESA (
 # Definición del objeto, llamando a los métodos de su clase siguiendo la convención snake_case
 empleado_empresa = trabajadores()
 empleado_empresa.calculo_aumento()
+# Fin del proceso

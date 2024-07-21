@@ -87,4 +87,4 @@ print(mi_auto.manual)
 
 # Llamada al método eliminar_atributo del objeto mi_auto
 mi_auto.eliminar_atributo()
-# Finalización del proceso
+# Finalización del proceso.
