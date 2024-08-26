@@ -1,5 +1,4 @@
 import os
-# Inicialización de un proceso para simular un control de inventario para una tienda
 
 # Clase que representa un producto en el inventario
 class Producto:
@@ -36,11 +35,11 @@ class Producto:
     def set_precio(self, precio):
         self.precio = precio
 
-    # Método para convertir el objeto producto en una cadena de texto
+    # Método para convertir el objeto Producto a una cadena de texto
     def __str__(self):
         return f"{self.id},{self.nombre},{self.cantidad},{self.precio}"
 
-    # Método estático para crear un objeto a partir de una cadena de texto
+    # Método estático para crear un objeto Producto a partir de una cadena de texto
     @staticmethod
     def from_string(producto_str):
         id, nombre, cantidad, precio = producto_str.strip().split(',')
@@ -49,44 +48,48 @@ class Producto:
 # Clase que maneja el inventario de productos
 class Inventario:
     def __init__(self, archivo='inventario.txt'):
-        # Inicializa una lista vacía para guardar los productos
+        # Inicializa una lista vacía para almacenar los productos
         self.lista_producto = []
         # Nombre del archivo donde se almacenará el inventario
         self.archivo = archivo
+        # Verifica la existencia y permisos del archivo
+        self.verificar_archivo()
         # Carga el inventario desde el archivo al iniciar
         self.cargar_inventario()
+
+    # Método para verificar la existencia y permisos del archivo
+    def verificar_archivo(self):
+        # Verifica si el archivo existe, si no, lo crea
+        if not os.path.exists(self.archivo):
+            with open(self.archivo, 'w') as file:
+                pass
+        # Verifica los permisos del archivo
+        if not os.access(self.archivo, os.R_OK | os.W_OK):
+            raise PermissionError(f"No se tienen permisos de lectura/escritura para el archivo {self.archivo}")
 
     # Método para cargar el inventario desde un archivo
     def cargar_inventario(self):
         try:
-            # Abre el archivo en modo lectura
             with open(self.archivo, 'r') as file:
                 for linea in file:
-                    # Lee cada línea del archivo y crea un objeto
                     producto = Producto.from_string(linea)
                     self.lista_producto.append(producto)
             print("Inventario cargado exitosamente.")
         except FileNotFoundError:
-            # Si el archivo no existe, muestra un mensaje y continúa
             print("Archivo de inventario no encontrado. Se creará uno nuevo al guardar.")
         except Exception as e:
-            # Maneja cualquier error que se presente durante el programa
             print(f"Error al cargar el inventario: {e}")
 
-    # Método para guardar el inventario en el archivo
+    # Método para guardar el inventario en un archivo
     def guardar_inventario(self):
         try:
-            # Abre el archivo en modo escritura
             with open(self.archivo, 'w') as file:
-                # Escribe cada producto en el archivo
                 for producto in self.lista_producto:
                     file.write(str(producto) + '\n')
             print("Inventario guardado exitosamente.")
         except PermissionError:
-            # Maneja el error de permiso denegado
             print("Permiso denegado para escribir en el archivo de inventario.")
         except Exception as e:
-            # Maneja cualquier otro error que ocurra durante la escritura
             print(f"Error al guardar el inventario: {e}")
 
     # Método para agregar un producto al inventario
